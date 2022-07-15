@@ -9,7 +9,8 @@
   }
 
   const restarUnidad = () => {
-    if (--product.cantidad != 0) {    //decrementa primero y luego chequea si es dist de cero
+    if (--product.cantidad != 0) {
+      //decrementa primero y luego chequea si es dist de cero
       $products = $products
     } else {
       $products = $products.filter((item) => product.id != item.id)
@@ -21,15 +22,15 @@
   }
 </script>
 
-<div class="card-list">
-  <img src={product.img} alt={product.img} />
-  <p>Combo Nº {product.numerocombo}</p>
-  <p>Cantidad {product.cantidad}</p>
-  <p>Total ${product.precio * product.cantidad}</p>
-  <button on:click={agregarUnidad}> + </button>
-  <button on:click={restarUnidad}> - </button>
-  <button on:click={removeProduct}> x </button>
-</div>
+  <div class="card-list">
+    <img src={product.img} alt={product.img} />
+    <p>Combo Nº {product.numerocombo}</p>
+    <p>Cantidad {product.cantidad}</p>
+    <p>Total ${product.precio * product.cantidad}</p>
+    <button on:click={agregarUnidad}> + </button>
+    <button on:click={restarUnidad}> - </button>
+    <button on:click={removeProduct}> x </button>
+  </div>
 
 <style>
   p {
@@ -41,10 +42,11 @@
     background-color: rgb(103, 119, 104);
     display: flex;
     text-align: center;
-    margin:2px;
+    margin: 2px;
     padding: 0;
     border-radius: 30px 0px 30px 10px;
-    box-shadow:5px 5px 5px rgba(0, 0, 0,0.5);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    height: 60px;
   }
   img {
     height: 70px;
@@ -57,8 +59,9 @@
     align-items: center;
     border-radius: 5px;
   }
-  button:hover{
-   background-color: rgb(162, 0, 255);
-   transition:100ms;
+  button:hover {
+    background-color: rgb(162, 0, 255);
+    transition: 100ms;
   }
+ 
 </style>

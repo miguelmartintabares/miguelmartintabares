@@ -4,8 +4,6 @@
   import Card from "./Card.svelte"
   import { itemInCard } from "../Components/Cart.js"
   import { products } from "../Components/Cart.js"
- 
-
 
   const handleEmail = () => {
     console.log($products)
@@ -21,8 +19,8 @@
     <CompProducts />
     <div>
       <div class="compcard">
-      {#if $itemInCard}
-        <CompCart />
+        {#if $itemInCard}
+          <CompCart />
           <div class="botones-card">
             <button on:click={handleEmail}>Enviar</button>
             <!-- <spam> {$itemInCard}</spam>
@@ -38,16 +36,16 @@
   .container-pedidos {
     display: flex;
   }
+
   .compcard {
     margin-top: 80px;
     margin-right: 20px;
     margin-left: 20px;
-    width: 400px;
+    width: 90%;
     align-content: space-between;
     height: auto;
-    
   }
-  
+
   button {
     width: 100px;
     border: 0;
@@ -58,10 +56,16 @@
   button:hover {
     background-color: rgb(162, 0, 255);
     transition: 100ms;
-    transform: scale(1.01) ;
+    transform: scale(1.01);
   }
-  .botones-card{
-   display: flex;
-   justify-content:space-between;
+  .botones-card {
+    display: flex;
+    justify-content: space-between;
+  }
+  @media screen and (max-width: 480px) {
+    .container-pedidos {
+      display: flex;
+      flex-direction: column-reverse;
+    }
   }
 </style>

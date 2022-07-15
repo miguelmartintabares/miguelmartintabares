@@ -187,7 +187,4 @@
       text-align: center;
     }
   }
-  .input-product {
-    font-size: 0.65rem;
-  }
 </style>

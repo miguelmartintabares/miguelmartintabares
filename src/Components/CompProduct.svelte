@@ -150,7 +150,7 @@
   @media screen and (max-width: 480px) {
     .eslot {
       margin:0px;
-      width: 380px;
+      width: 350px;
       height: 600px;
       opacity: 1;
     }

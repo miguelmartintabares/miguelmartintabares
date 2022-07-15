@@ -150,8 +150,8 @@
   @media screen and (max-width: 480px) {
     .eslot {
       margin:0px;
-      width: 350px;
-      height: 600px;
+      width: 300px;
+      height: auto;
       opacity: 1;
     }
     .eslot:hover {

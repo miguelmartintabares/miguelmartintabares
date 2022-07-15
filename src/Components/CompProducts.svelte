@@ -5,7 +5,7 @@ import CompNav from "./CompNav.svelte"
 </script>
 
 <div class="main-combos">
-  <h5>Combos</h5><CompNav/>
+  <h5>Combos</h5>
   <hr>
   <div class="container-product">
     {#each $products as product}

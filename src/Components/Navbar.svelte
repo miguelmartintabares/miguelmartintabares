@@ -73,22 +73,10 @@
           type="button"
           class="btn btn-outline-light ">Log-in</button
         >
-<<<<<<< HEAD
         <button on:click={handleLogout} type="button" class="btn btn-light"
           >Log-out</button
         >
-=======
-     
->>>>>>> 638a503ace783b4c7682ddfd39e5f05559f9fa65
       </div>
-      <!-- <form>
-        <input
-          class="form-control"
-          type="text"
-          placeholder="Search"
-          aria-label="Search"
-        />
-      </form> -->
     </div>
   </div>
 </nav>
@@ -97,10 +85,9 @@
   /* :global(*){
     box-sizing: border-box;
   } */
-<<<<<<< HEAD
+
   @media screen and (max-width:480){
 
   }
-=======
->>>>>>> 638a503ace783b4c7682ddfd39e5f05559f9fa65
+
 </style>

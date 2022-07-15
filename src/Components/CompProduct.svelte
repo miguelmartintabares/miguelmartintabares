@@ -149,7 +149,7 @@
 
   @media screen and (max-width: 480px) {
     .eslot {
-      margin: 10px;
+      margin:0px;
       width: 380px;
       height: 600px;
       opacity: 1;
@@ -160,8 +160,8 @@
       z-index: 100;
     }
     .card-image {
-      width: 380px;
-      margin-bottom: 20px;
+      width: 100%;
+      margin-bottom: 0px;
     }
     p {
       font-size: 1.2rem;

@@ -73,9 +73,7 @@
           type="button"
           class="btn btn-outline-light ">Log-in</button
         >
-        <button on:click={handleLogout} type="button" class="btn btn-light"
-          >Log-out</button
-        >
+     
       </div>
       <!-- <form>
         <input

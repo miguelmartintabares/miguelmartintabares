@@ -2,7 +2,7 @@
   import { products } from "./Cart.js"
   import { itemInCard } from "../Components/Cart.js"
   console.log($products)
-  itemInCard.set(0)
+  itemInCard.set(0) 
   $: {
     let count = 0
     for (let item of $products) {
@@ -73,9 +73,13 @@
           type="button"
           class="btn btn-outline-light ">Log-in</button
         >
+<<<<<<< HEAD
         <button on:click={handleLogout} type="button" class="btn btn-light"
           >Log-out</button
         >
+=======
+     
+>>>>>>> 638a503ace783b4c7682ddfd39e5f05559f9fa65
       </div>
       <!-- <form>
         <input
@@ -93,7 +97,10 @@
   /* :global(*){
     box-sizing: border-box;
   } */
+<<<<<<< HEAD
   @media screen and (max-width:480){
 
   }
+=======
+>>>>>>> 638a503ace783b4c7682ddfd39e5f05559f9fa65
 </style>

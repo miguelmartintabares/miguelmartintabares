@@ -10,7 +10,11 @@
   }
 
   const buyProductCant = (cant) => {
+<<<<<<< HEAD
     if (cantidadEnInput === 0) return
+=======
+    if(cantidadEnInput === 0)return
+>>>>>>> 638a503ace783b4c7682ddfd39e5f05559f9fa65
     for (let item of $products) {
       if (item.id == product.id) {
         item.cantidad = cant
@@ -24,6 +28,7 @@
     cantidadEnInput = ""
   }
 </script>
+<<<<<<< HEAD
 
 <div class="eslot">
   <img class="card-image " src={product.img} alt={product.id} />
@@ -54,6 +59,36 @@
     </div>
   </div>
 </div>
+=======
+    <div class="eslot">
+      <img class="card-image " src={product.img} alt={product.id} />
+      <div class="infocombo">
+        <p>Combo Nº : {product.numerocombo}</p>
+        <p class="precio">Precio : ${product.precio}</p>
+        <hr />
+        <p class="detalle">Detalle : {product.infocombo}</p>
+        <hr />
+        <div class="footer">
+          <input class="input-product"
+            on:change={enviar}
+            on:keyup={enviar}
+            value={cantidadEnInput}
+            type="number"
+            placeholder="cantidad"
+            min="1"
+            max="50"
+          />
+
+          {#if cantidadEnInput}
+            <button 
+            on:click={() => buyProductCant(cantidadEnInput)}
+            disabled={cantidadEnInput.length === 0}>Agregar</button>
+          {/if}
+          
+        </div>
+      </div>
+    </div>
+>>>>>>> 638a503ace783b4c7682ddfd39e5f05559f9fa65
 
 <style>
   .eslot {
@@ -67,12 +102,22 @@
     background-color: white;
     transition: 100ms;
   }
+<<<<<<< HEAD
   .eslot:hover {
     transform: scale(1.2);
     opacity: 1;
     z-index: 100;
   }
   .card-image {
+=======
+  .eslot:hover{ 
+   transform: scale(1.2) ;
+   opacity: 1;
+   z-index: 100;
+  }
+  .card-image {
+    background-color: grey;
+>>>>>>> 638a503ace783b4c7682ddfd39e5f05559f9fa65
     width: 148px;
     margin-bottom: 5px;
     background-size: cover;
@@ -87,7 +132,11 @@
     margin: 0;
     margin-right: 0px;
     font-size: 0.6rem;
+<<<<<<< HEAD
     font-weight: 900;
+=======
+    font-weight:900;
+>>>>>>> 638a503ace783b4c7682ddfd39e5f05559f9fa65
   }
   .infocombo {
     margin: 5px;
@@ -98,7 +147,10 @@
     flex-direction: row;
     justify-content: space-between;
   }
+<<<<<<< HEAD
   
+=======
+>>>>>>> 638a503ace783b4c7682ddfd39e5f05559f9fa65
   button {
     width: 70px;
     background-color: rgb(41, 103, 82);
@@ -107,6 +159,7 @@
     border-radius: 0px 0px 10px 0px;
     font-size: 12px;
   }
+<<<<<<< HEAD
   button:hover {
     background-color: rgb(162, 0, 255);
     transition: 100ms;
@@ -114,12 +167,23 @@
   input {
     width: 70px;
     border: 1px solid;
+=======
+  button:hover{
+   background-color: rgb(162, 0, 255);
+   transition:100ms;
+  
+  }
+  input {
+    width: 70px;
+    border: 1px solid ;
+>>>>>>> 638a503ace783b4c7682ddfd39e5f05559f9fa65
     border-radius: 0px 0px 0px 10px;
     padding: 5px;
   }
   .detalle {
     width: max-content;
   }
+<<<<<<< HEAD
   .input-product {
     font-size: 0.65rem;
   }
@@ -166,4 +230,10 @@
   }
 
   }
+=======
+  .input-product{
+    font-size: 0.65rem;
+  }
+
+>>>>>>> 638a503ace783b4c7682ddfd39e5f05559f9fa65
 </style>

@@ -63,6 +63,8 @@
       flex-direction: column-reverse;
     }
     button {
+      margin-top: 0px;
+      margin-bottom: 30px;
       height: 50px;
       font-size: 20px;
     }
@@ -72,9 +74,9 @@
       align-content: space-between;
       height: auto;
       padding: 0px;
-      margin-top: 80px;
-      margin-right: 0px;
-      margin-left: 0px;
+      margin-top: 60px;
+      margin-right: 10px;
+      margin-left: 10px;
     }
   }
 </style>

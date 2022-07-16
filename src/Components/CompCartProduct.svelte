@@ -1,6 +1,6 @@
 <script>
   import { products } from "./Cart.js"
-
+  import Delete from "../img/delete.png"
   export let product
 
   const agregarUnidad = () => {
@@ -22,19 +22,26 @@
   }
 </script>
 
-  <div class="card-list">
-    <img src={product.img} alt={product.img} />
-    <p>Combo Nº {product.numerocombo}</p>
-    <p>Cantidad {product.cantidad}</p>
-    <p>Total ${product.precio * product.cantidad}</p>
-    <button on:click={agregarUnidad}> + </button>
-    <button on:click={restarUnidad}> - </button>
-    <button on:click={removeProduct}> x </button>
-  </div>
+<div class="card-list">
+  <img src={product.img} alt={product.img} />
+  <p>Combo Nº {product.numerocombo}</p>
+  <p>Cantidad {product.cantidad}</p>
+  <p>Total ${product.precio * product.cantidad}</p>
+  <p on:click={removeProduct} class="material-symbols-outlined">
+    delete_forever
+  </p>
+</div>
 
 <style>
+  .material-symbols-outlined {
+    font-size: 2rem;
+    color: white;
+  }
+  .material-symbols-outlined:hover {
+    color: red;
+  }
   p {
-    font-size: 1rem;
+    font-size: 0.81rem;
     margin: 8px;
     color: rgb(255, 255, 255);
   }
@@ -42,26 +49,18 @@
     background-color: rgb(103, 119, 104);
     display: flex;
     text-align: center;
-    margin: 2px;
+    margin-bottom: 10px;
     padding: 0;
     border-radius: 30px 0px 30px 10px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
     height: 60px;
+    width: 300px;
   }
   img {
     height: 70px;
     width: auto;
     border-radius: 30px 0px 30px 10px;
   }
-  button {
-    height: 25px;
-    border: 1px solid;
-    align-items: center;
-    border-radius: 5px;
+  @media screen and (max-width: 480px) {
   }
-  button:hover {
-    background-color: rgb(162, 0, 255);
-    transition: 100ms;
-  }
- 
 </style>

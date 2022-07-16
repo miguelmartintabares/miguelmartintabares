@@ -23,8 +23,6 @@
           <CompCart />
           <div class="botones-card">
             <button on:click={handleEmail}>Enviar</button>
-            <!-- <spam> {$itemInCard}</spam>
-            <spam>Total : {$itemInCard}</spam> -->
           </div>
         {/if}
       </div>
@@ -41,13 +39,13 @@
     margin-top: 80px;
     margin-right: 20px;
     margin-left: 20px;
-    width: 90%;
+    width: 300px;
     align-content: space-between;
     height: auto;
   }
 
   button {
-    width: 100px;
+    width: 100%;
     border: 0;
     background-color: rgb(41, 103, 82);
     color: beige;
@@ -62,10 +60,15 @@
     display: flex;
     justify-content: space-between;
   }
+
   @media screen and (max-width: 480px) {
     .container-pedidos {
       display: flex;
       flex-direction: column-reverse;
+    }
+    button{
+      height: 50px;
+      font-size:20px;
     }
   }
 </style>

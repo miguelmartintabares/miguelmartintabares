@@ -23,8 +23,8 @@
   }
   .main-combos {
     width: 100%;
-    margin-top: 60px;
-    margin-left: 10px;
+    margin: 0px 10px 0px 10px ;
+   
   }
   .container-product {
     display: grid;
@@ -43,6 +43,11 @@
       grid-auto-flow: dense;
       grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
       gap: 1rem;
+    }
+
+    hr {
+      margin: 10px 0px 10px 0px;
+      width: 300px;
     }
   }
 </style>

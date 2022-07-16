@@ -41,14 +41,13 @@
   }
   @media screen and (max-width: 480px) {
     .container-product {
-      display: grid;
-      grid-auto-flow: dense;
-      grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
-      gap: 1rem;
+      display: flex;
+      flex-direction: column;
+      width: 80%;
     }
     .main-combos {
       width: 100%;
-      margin: 60px 0px 0px 0px;
+      margin: 10px;
     }
 
     hr {

@@ -10,6 +10,13 @@
     <CompCartProduct {product} />
   {/each}
 
-
 <style>
+  h5{
+    margin: 0;
+    padding: 0;
+  }
+  hr{
+    margin:7px;
+  }
+
 </style>

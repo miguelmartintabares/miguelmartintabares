@@ -33,12 +33,10 @@
     display: flex;
   }
   .compcard {
-    margin-top: 80px;
+    margin-top: 60px;
     margin-right: 20px;
     margin-left: 20px;
-
-    width: 300px;
-    align-content: space-between;
+    width: auto;
     height: auto;
   }
 
@@ -63,8 +61,6 @@
     .container-pedidos {
       display: flex;
       flex-direction: column-reverse;
-      
- 
     }
     button {
       height: 50px;
@@ -75,6 +71,10 @@
       width: 300px;
       align-content: space-between;
       height: auto;
+      padding: 0px;
+      margin-top: 80px;
+      margin-right: 0px;
+      margin-left: 0px;
     }
   }
 </style>

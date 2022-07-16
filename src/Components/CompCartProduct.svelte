@@ -1,6 +1,5 @@
 <script>
   import { products } from "./Cart.js"
-  import Delete from "../img/delete.png"
   export let product
 
   const agregarUnidad = () => {
@@ -33,18 +32,7 @@
 </div>
 
 <style>
-  .material-symbols-outlined {
-    font-size: 2rem;
-    color: white;
-  }
-  .material-symbols-outlined:hover {
-    color: red;
-  }
-  p {
-    font-size: 0.81rem;
-    margin: 8px;
-    color: rgb(255, 255, 255);
-  }
+  
   .card-list {
     background-color: rgb(103, 119, 104);
     display: flex;
@@ -61,7 +49,30 @@
     width: auto;
     border-radius: 30px 0px 30px 10px;
   }
+  p {
+    font-size: 0.81rem;
+    margin: 8px;
+    color: rgb(255, 255, 255);
+  }
+  .material-symbols-outlined {
+    font-size: 2.5rem;
+    color: white;
+  }
+  .material-symbols-outlined:hover {
+    color: red;
+  }
   @media screen and (max-width: 480px) {
     
+    .card-list {
+    background-color: rgb(103, 119, 104);
+    display: flex;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 0;
+    border-radius: 30px 0px 30px 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    height: 60px;
+    width: 300px;
+  }
   }
 </style>

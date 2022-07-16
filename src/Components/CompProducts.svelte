@@ -23,7 +23,7 @@
   }
   .main-combos {
     width: 100%;
-    margin: 60px 0px 0px 0px;
+    margin: 60px 0px 0px 10px;
     padding: 0;
     height: 100%;
   }
@@ -44,10 +44,12 @@
       display: flex;
       flex-direction: column;
       width: 80%;
+      gap: 1rem;
     }
     .main-combos {
       width: 100%;
-      margin: 10px;
+      margin: 10px 0px 0px 10px;
+   
     }
 
     hr {

@@ -1,6 +1,6 @@
 <script>
-  import { products } from "./Cart.js"
-  import { itemInCard } from "../Components/Cart.js"
+  import { products } from "./stores.js"
+  import { itemInCard } from "./stores.js"
 
   itemInCard.set(0)
 

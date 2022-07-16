@@ -2,14 +2,18 @@
   import CompProducts from "../Components/CompProducts.svelte"
   import CompCart from "../Components/CompCart.svelte"
   import Card from "./Card.svelte"
-  import { itemInCard } from "../Components/Cart.js"
-  import { products } from "../Components/Cart.js"
+  import { itemInCard } from "../Components/stores.js"
+  import { products } from "../Components/stores.js"
+  import { goto } from "$app/navigation"
 
-  const handleEmail = () => {
-   console.log($products)
-   itemInCard.set(false)
+  export const product = {}
+
+  export const handleEmail = (product) => {
+    console.log($products)
+    itemInCard.set(false)
+    $products = $products.filter(() => product.id)
+    // goto("/Jugadores")
   }
-
 </script>
 
 <Card>

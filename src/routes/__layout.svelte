@@ -3,6 +3,8 @@
 </script>
 
 <Navbar />
-<slot />
+<slot>
+  hola
+</slot>
 
  

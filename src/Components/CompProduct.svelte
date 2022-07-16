@@ -1,9 +1,10 @@
 <script>
-  import { products } from "./Cart.js"
-  import { itemInCard } from "../Components/Cart.js"
-  export let product = {}  // por aca entra el dato del componente padre CompProducts
-                        
-  let cantidadEnInput = ""
+  import { products } from "./stores.js"
+  import { itemInCard } from "./stores.js"
+
+  export let product = {}  // por aca entra el dato del componente padre CompProducts 
+                           // al exportar se usa en componente padre para mandar datos
+ let cantidadEnInput = ""
   
   const enviar = (e) => {
     cantidadEnInput = e.target.value
@@ -11,15 +12,15 @@
 
   const buyProductCant = (cant) => {
     if(cantidadEnInput === 0)return
+    itemInCard.set(true)
     for (let item of $products) {
       if (item.id == product.id) {
         item.cantidad = cant
-        // $products = $products
+         //$products = $products
         cantidadEnInput = ""
         return
       }
     }
-    itemInCard.set(true)
     product.cantidad = cant
     $products = [...$products, product]
     cantidadEnInput = ""

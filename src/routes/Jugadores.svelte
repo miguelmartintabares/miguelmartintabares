@@ -1,6 +1,7 @@
 <script>
   import Card from "./Card.svelte"
-
+  import { goto } from "$app/navigation"
+  goto("/Pedidos")
   const datosEnCero = [
     {
       id: 0,
@@ -49,12 +50,28 @@
 {#each datosJugador as dato}
   <Card>
     <div slot="jugador">
-      <p>id : {dato.id}</p>
-      <p>Nombre : {dato.nombre}</p>
-      <p>Apellido : {dato.apellido}</p>
+      <div class="jugador">
+        <div class="jugador-card">
+          <p>id : {dato.id}</p>
+          <p>Nombre : {dato.nombre}</p>
+          <p>Apellido : {dato.apellido}</p>
+          <p>dni : {dato.dni}</p>
+          <p>edad : {dato.apellido}</p>
+          <p>Clase : {dato.apellido}</p>
+        </div>
+      </div>
     </div>
   </Card>
 {/each}
 
 <style>
+  .jugador {
+    margin: 0px;
+    padding: 0;
+  }
+  .jugador-card {
+    display: flex;
+    margin: 10px;
+    padding: 0;
+  }
 </style>

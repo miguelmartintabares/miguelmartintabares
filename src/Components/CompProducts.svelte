@@ -1,7 +1,7 @@
 <script>
-  import { products } from "./product.js"
+  import { baseProducts } from "./product.js"
   import CompProduct from "./CompProduct.svelte"
-  import CompNav from "./CompNav.svelte"
+  import CompNav from "./select.svelte"
 </script>
 
 <div class="main-combos">
@@ -9,8 +9,8 @@
   <!-- <CompNav />   selector zoom al pedo para probar -->
   <hr />
   <div class="container-product">
-    {#each $products as product}
-      <CompProduct {product} />
+    {#each $baseProducts as dato}      <!--$baseProducts seria la base de dato sw combos--> 
+      <CompProduct product={dato} />   <!-- product es la variable para enviar dato a CompProduct-->
     {/each}
   </div>
 </div>

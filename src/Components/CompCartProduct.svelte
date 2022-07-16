@@ -1,24 +1,17 @@
 <script>
-  import { products } from "./Cart.js"
+  import { products } from "./stores.js"
   
   export let product 
 
-  const agregarUnidad = () => {
-    product.cantidad++
-    $products = $products
-  }
-
+  const agregarUnidad = () => product.cantidad++
   const restarUnidad = () => {
-    if (--product.cantidad != 0) {
-      //decrementa primero y luego chequea si es dist de cero
-      $products = $products
+    if (--product.cantidad != 0) {    //decrementa primero y luego chequea si es dist de cero
     } else {
-      $products = $products.filter((item) => product.id != item.id)
+      $products = $products.filter((e) => product.id != e.id)
     }
   }
-
   const removeProduct = () => {
-    $products = $products.filter((item) => product.id != item.id)
+    $products = $products.filter((e) => product.id != e.id) // dejo en product el ide(e.id) no clikeado
   }
 </script>
 

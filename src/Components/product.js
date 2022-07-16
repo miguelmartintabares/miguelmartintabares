@@ -10,7 +10,8 @@ import img6 from "../img/combo_img6.jpg"
 import img7 from "../img/combo_img7.jpg"
 
 
-export let products = writable( [
+export let baseProducts = writable( [
+
   {
     "id": 9,
     "numerocombo": "9",

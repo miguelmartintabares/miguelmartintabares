@@ -1,10 +1,10 @@
 <script>
   import { products } from "./Cart.js"
-
-  export let product = {}
-
-  export let cantidadEnInput = ""
-
+  import { itemInCard } from "../Components/Cart.js"
+  export let product = {}  // por aca entra el dato del componente padre CompProducts
+                        
+  let cantidadEnInput = ""
+  
   const enviar = (e) => {
     cantidadEnInput = e.target.value
   }
@@ -14,11 +14,12 @@
     for (let item of $products) {
       if (item.id == product.id) {
         item.cantidad = cant
-        $products = $products
+        // $products = $products
         cantidadEnInput = ""
         return
       }
     }
+    itemInCard.set(true)
     product.cantidad = cant
     $products = [...$products, product]
     cantidadEnInput = ""

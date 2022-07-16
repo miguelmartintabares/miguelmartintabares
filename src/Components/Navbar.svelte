@@ -1,8 +1,9 @@
 <script>
   import { products } from "./Cart.js"
   import { itemInCard } from "../Components/Cart.js"
-  console.log($products)
+
   itemInCard.set(0)
+
   $: {
     let count = 0
     for (let item of $products) {

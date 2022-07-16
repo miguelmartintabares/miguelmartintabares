@@ -1,6 +1,7 @@
 <script>
   import { products } from "./Cart.js"
-  export let product
+  
+  export let product 
 
   const agregarUnidad = () => {
     product.cantidad++

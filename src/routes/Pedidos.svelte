@@ -6,16 +6,14 @@
   import { products } from "../Components/Cart.js"
 
   const handleEmail = () => {
-    console.log($products)
-    console.log($itemInCard)
-    itemInCard.set(0)
-    $products = $products.filter((item) => product.id != item.id)
-    console.log($products)
+   console.log($products)
+   itemInCard.set(false)
   }
+
 </script>
 
 <Card>
-  <main class="container-pedidos" slot="card">
+  <main slot="card" class="container-pedidos">
     <CompProducts />
     <div class="compcard">
       {#if $itemInCard}

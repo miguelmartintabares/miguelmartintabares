@@ -18,24 +18,26 @@
 <style>
   h5 {
     font-size: 1.2rem;
-    margin: 0;
+    margin-left: 10px;
     padding: 0;
   }
   .main-combos {
     width: 100%;
-    margin: 0px 10px 0px 10px ;
-   
+    margin: 60px 0px 0px 0px;
+    padding: 0;
+    height: 100%;
   }
   .container-product {
+    margin: 0px;
     display: grid;
     grid-auto-flow: dense;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+    justify-items: center;
+    gap: 0rem;
   }
   hr {
     padding: 0;
-    margin: 10px;
-    column-width: inherit;
+    margin: 0px;
   }
   @media screen and (max-width: 480px) {
     .container-product {
@@ -43,6 +45,10 @@
       grid-auto-flow: dense;
       grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
       gap: 1rem;
+    }
+    .main-combos {
+      width: 100%;
+      margin: 60px 0px 0px 0px;
     }
 
     hr {

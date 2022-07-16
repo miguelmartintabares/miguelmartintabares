@@ -57,7 +57,8 @@
 
 <style>
   .eslot {
-    margin-top: 0px;
+    margin: 10px;
+    padding: 0;
     width: 150px;
     height: auto;
     border: 1px solid #aaa;

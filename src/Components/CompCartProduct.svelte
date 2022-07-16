@@ -62,5 +62,6 @@
     border-radius: 30px 0px 30px 10px;
   }
   @media screen and (max-width: 480px) {
+    
   }
 </style>

@@ -17,15 +17,13 @@
 <Card>
   <main class="container-pedidos" slot="card">
     <CompProducts />
-    <div>
-      <div class="compcard">
-        {#if $itemInCard}
-          <CompCart />
-          <div class="botones-card">
-            <button on:click={handleEmail}>Enviar</button>
-          </div>
-        {/if}
-      </div>
+    <div class="compcard">
+      {#if $itemInCard}
+        <CompCart />
+        <div class="botones-card">
+          <button on:click={handleEmail}>Enviar</button>
+        </div>
+      {/if}
     </div>
   </main>
 </Card>
@@ -34,11 +32,11 @@
   .container-pedidos {
     display: flex;
   }
-
   .compcard {
     margin-top: 80px;
     margin-right: 20px;
     margin-left: 20px;
+
     width: 300px;
     align-content: space-between;
     height: auto;
@@ -65,10 +63,18 @@
     .container-pedidos {
       display: flex;
       flex-direction: column-reverse;
+      
+ 
     }
-    button{
+    button {
       height: 50px;
-      font-size:20px;
+      font-size: 20px;
+    }
+    .compcard {
+      padding: 0px;
+      width: 300px;
+      align-content: space-between;
+      height: auto;
     }
   }
 </style>

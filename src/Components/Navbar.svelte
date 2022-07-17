@@ -1,18 +1,38 @@
 <script>
-  import { isUserLogin } from "./stores.js"
+  import Profile from "./../routes/Profile.svelte"
+  import { signOut, onAuthStateChanged } from "firebase/auth"
+  import { goto } from "$app/navigation"
+  import { isUserLogin, user } from "./stores.js"
   import { auth } from "../firebase"
   import { GoogleAuthProvider, signInWithPopup } from "firebase/auth"
 
   const login = async () => {
-
-    const provider = new GoogleAuthProvider()
-    await signInWithPopup(auth, provider)
-    $isUserLogin = true
+    try {
+      const provider = new GoogleAuthProvider()
+      const res = await signInWithPopup(auth, provider)
+      $user = res.user
+      $isUserLogin = true
+      goto("/Profile")
+    } catch (error) {
+      console.log(error)
+    }
   }
 
-  function logout() {
-    $isUserLogin = false
+  const logout = async () => {
+    try {
+      await signOut(auth)
+      $isUserLogin = false
+      $user = {}
+      $isUserLogin = false
+    } catch (error) {
+      console.log(error)
+    }
   }
+
+  onAuthStateChanged(auth, (authUser) => {
+    $user = authUser
+    $isUserLogin = !!authUser
+  })
 </script>
 
 <nav
@@ -63,19 +83,20 @@
             </ul>
           </li>
         </ul>
-      {/if}
+        {/if}
       <div class="col-md-3 ">
         <button on:click={login} type="button" class="btn btn-outline-light"
-          >Ingresar</button
-        >
+          >Ingresar</button>
+
         {#if $isUserLogin}
           <button on:click={logout} type="button" class="btn btn-light"
             >Salir</button
           >
         {/if}
-      </div>
+      </div  >
     </div>
   </div>
+  <Profile />
 </nav>
 
 <style>

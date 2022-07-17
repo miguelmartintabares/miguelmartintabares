@@ -1,28 +1,36 @@
 <script>
-  import { isUserLogin, user } from "./../Components/stores.js"
+  export let isUserLogin, user
 </script>
 
 <div class="container">
-  <div>
-    {#if $isUserLogin}
-      <img src={$user.photoURL} alt={$user.displayName} class="avatar-perfil" />
-      <spam>{$user.displayName}</spam>
+ 
+    {#if isUserLogin}
+      <img src={user.photoURL} alt={user.displayName} class="avatar-perfil" />
+      <spam>{user.displayName}</spam>
       <!-- <p>{$user.email}</p> -->
     {/if}
-  </div>
+ 
 </div>
 
 <style>
   .container {
-    width:250px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 250px;
     margin: 0;
   }
   .avatar-perfil {
+    margin: 5px;
     width: 30px;
     border-radius: 50%;
   }
-  spam{
+  spam {
     font-size: small;
     color: rgb(212, 212, 212);
+  }
+
+  @media screen and (max-width: 480px){
+
   }
 </style>

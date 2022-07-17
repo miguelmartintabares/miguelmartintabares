@@ -16,7 +16,7 @@
     for (let item of $products) {
       if (item.id == product.id) {
         item.cantidad = cant
-         //$products = $products
+         $products = $products
         cantidadEnInput = ""
         return
       }

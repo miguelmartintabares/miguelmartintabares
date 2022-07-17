@@ -4,7 +4,7 @@
   import { goto } from "$app/navigation"
   import { isUserLogin, user } from "./stores.js"
   import { auth } from "../firebase"
-  import { GoogleAuthProvider, signInWithPopup } from "firebase/auth"
+  import { GoogleAuthProvider, signInWithPopup} from "firebase/auth"
 
   const login = async () => {
     try {
@@ -67,7 +67,7 @@
           <li class="nav-item">
             <a class="nav-link " href="/Home">Disabled</a>
           </li>
-
+         
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
@@ -83,7 +83,9 @@
             </ul>
           </li>
         </ul>
+        <Profile isUserLogin={$isUserLogin} user={$user}/>
         {/if}
+        
       <div class="col-md-3 ">
         <button on:click={login} type="button" class="btn btn-outline-light"
           >Ingresar</button>
@@ -96,14 +98,11 @@
       </div  >
     </div>
   </div>
-  <Profile />
+
 </nav>
 
 <style>
   :global(*) {
     box-sizing: border-box;
-  }
-
-  @media screen and (max-width: 480) {
   }
 </style>

@@ -5,15 +5,17 @@
   import { itemInCard } from "../Components/stores.js"
   import { products } from "../Components/stores.js"
   import { goto } from "$app/navigation"
+  import {isUserLogin,user} from "../Components/stores"
 
   export const product = {}
 
-  export const handleEmail = (product) => {
+  export const handleEmail = () => {
+    console.log($user.displayName)
+    console.log($user.email)
     console.log($products)
     itemInCard.set(false)
     $products=[]
-    // $products = $products.filter(() => product.id)
-    // goto("/Jugadores")
+
   }
 </script>
 

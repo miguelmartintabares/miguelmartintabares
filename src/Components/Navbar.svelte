@@ -1,22 +1,12 @@
 <script>
-  import { products } from "./stores.js"
-  import { itemInCard } from "./stores.js"
+  import { isUserLogin } from "./stores.js"
 
-  itemInCard.set(0)
-
-  $: {
-    let count = 0
-    for (let item of $products) {
-      count = parseInt(count) + parseInt(item.cantidad)
-    }
-    itemInCard.set(count)
+  function login() {
+    $isUserLogin=true
   }
+  function logout() {
+    $isUserLogin=false
 
-  function handleLogin(e) {
-    e.preventDefault()
-  }
-  function handleLogout(e) {
-    e.preventDefault()
   }
 </script>
 
@@ -40,49 +30,51 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarsExample04">
-      <ul class="navbar-nav me-auto mb-2 mb-md-0">
-        <li class="nav-item">
-          <a href="/Home" class="nav-link active" aria-current="page">Home</a>
-        </li>
-        <li class="nav-item">
-          <a href="/Jugadores" class="nav-link">jugadores</a>
-        </li>
+      {#if $isUserLogin}
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a href="/Home" class="nav-link active" aria-current="page">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="/Jugadores" class="nav-link">jugadores</a>
+          </li>
 
-        <li class="nav-item">
-          <a class="nav-link " href="/Home">Disabled</a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link " href="/Home">Disabled</a>
+          </li>
 
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="/Home"
-            id="dropdown04"
-            data-bs-toggle="dropdown"
-            aria-expanded="false">Combos</a
-          >
-          <ul class="dropdown-menu" aria-labelledby="dropdown04">
-            <a class="dropdown-item" href="/Agregar">Agregar</a>
-            <a class="dropdown-item" href="/Pedidos">Pedidos</a>
-            <a class="dropdown-item" href="/Administrar">Administrar</a>
-          </ul>
-        </li>
-      </ul>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="/Home"
+              id="dropdown04"
+              data-bs-toggle="dropdown"
+              aria-expanded="false">Combos</a
+            >
+            <ul class="dropdown-menu" aria-labelledby="dropdown04">
+              <a class="dropdown-item" href="/Agregar">Agregar</a>
+              <a class="dropdown-item" href="/Pedidos">Pedidos</a>
+              <a class="dropdown-item" href="/Administrar">Administrar</a>
+            </ul>
+          </li>
+        </ul>
+      {/if}
       <div class="col-md-3 ">
-        <button
-          on:click={handleLogin}
-          type="button"
-          class="btn btn-outline-light ">Log-in</button
+        <button on:click={login} type="button" class="btn btn-outline-light"
+          >Ingresar</button
         >
-        <button on:click={handleLogout} type="button" class="btn btn-light"
-          >Log-out</button
-        >
+        {#if $isUserLogin}
+          <button on:click={logout} type="button" class="btn btn-light"
+            >Salir</button
+          >
+        {/if}
       </div>
     </div>
   </div>
 </nav>
 
 <style>
-  :global(*){
+  :global(*) {
     box-sizing: border-box;
   }
 

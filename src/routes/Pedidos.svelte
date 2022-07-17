@@ -11,7 +11,8 @@
   export const handleEmail = (product) => {
     console.log($products)
     itemInCard.set(false)
-    $products = $products.filter(() => product.id)
+    $products=[]
+    // $products = $products.filter(() => product.id)
     // goto("/Jugadores")
   }
 </script>

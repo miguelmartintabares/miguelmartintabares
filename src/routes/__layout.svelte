@@ -1,10 +1,13 @@
 <script>
+	import { isUserLogin } from './../Components/stores.js';
   import Navbar from "../Components/Navbar.svelte"
+ 
 </script>
 
 <Navbar />
-<slot>
-  hola
-</slot>
+{#if $isUserLogin}
+<slot/>
+{/if}
+
 
  

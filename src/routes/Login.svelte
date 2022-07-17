@@ -1,7 +1,10 @@
 <script>
+    const login=()=>{
+        alert("login")
+    }
 </script>
 
-<div>Login</div>
+<button on:click={login}>Login</button>
 
 <style>
 </style>

@@ -4,9 +4,10 @@
   import { GoogleAuthProvider, signInWithPopup } from "firebase/auth"
 
   const login = async () => {
-    $isUserLogin = true
+
     const provider = new GoogleAuthProvider()
     await signInWithPopup(auth, provider)
+    $isUserLogin = true
   }
 
   function logout() {

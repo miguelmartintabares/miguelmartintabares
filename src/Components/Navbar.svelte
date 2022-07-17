@@ -1,12 +1,16 @@
 <script>
   import { isUserLogin } from "./stores.js"
+  import { auth } from "../firebase"
+  import { GoogleAuthProvider, signInWithPopup } from "firebase/auth"
 
-  function login() {
-    $isUserLogin=true
+  const login = async () => {
+    $isUserLogin = true
+    const provider = new GoogleAuthProvider()
+    await signInWithPopup(auth, provider)
   }
-  function logout() {
-    $isUserLogin=false
 
+  function logout() {
+    $isUserLogin = false
   }
 </script>
 

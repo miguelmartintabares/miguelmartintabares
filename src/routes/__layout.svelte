@@ -7,7 +7,6 @@
 <Navbar />
 {#if $isUserLogin}
 <slot/>
-{/if}
+{/if}   
 
 
- 

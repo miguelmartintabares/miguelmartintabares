@@ -9,6 +9,9 @@
 
   export const product = {}
   let listaPedido=[]
+  let total=0
+  let monto=0
+
   export const handleEmail = () => {
     // console.log($user.displayName)
     // console.log($user.email)
@@ -18,6 +21,12 @@
     listaPedido=[...$products]
      console.log(listaPedido)
      $products=[]
+  }
+  const calculaMontoTotal= (a,b)=>{
+    
+    console.log(a*b)
+
+
   }
 </script> 
 
@@ -40,13 +49,14 @@
         {#each listaPedido as lista}
          <div class="lista">
           <p>Combo Nº: {lista.numerocombo}</p>
-          <p>Detalle: {lista.infocombo}</p>
-          <p>$ {lista.precio}</p>
           <p>Cantidad: {lista.cantidad}</p>
+          <p>$ {lista.precio * lista.cantidad} </p>
+          
          </div>
           <hr>
         {/each}
 
+         <p>Total: </p>
       </div>
       {/if}
     </div>
@@ -54,6 +64,9 @@
 </Card>
 
 <style>
+  hr{
+    margin: 0;
+  }
   .lista{
     display: flex;
     flex-direction: row;
@@ -67,7 +80,7 @@
   .pedido{
 
     background: rgb(241, 241, 241);
-    width: 400px;
+    width: 300px;
     height:auto;
     border: 1px solid;
     border-radius: 5px;

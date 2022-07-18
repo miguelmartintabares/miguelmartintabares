@@ -2,6 +2,7 @@
   import { products } from "./stores.js"
   import CompCartProduct from "./CompCartProduct.svelte"
 
+
 </script>
 
 <h5>Lista de Pedidos</h5>

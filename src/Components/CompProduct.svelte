@@ -44,7 +44,7 @@
         type="number"
         placeholder="cantidad"
         min="1"
-        max="50"
+        max="20"
       />
 
       {#if cantidadEnInput}
@@ -70,11 +70,6 @@
     background-color: white;
     transition: 100ms;
   }
-  .eslot:hover {
-    transform: scale(1.2);
-    opacity: 1;
-    z-index: 100;
-  }
   .card-image {
     width: 148px;
     margin-bottom: 5px;
@@ -82,19 +77,10 @@
     border-radius: 15px 15px 0 0;
   }
   .eslot:hover {
-    transform: scale(1.2);
+    transform: scale(1.015);
     opacity: 1;
     z-index: 100;
   }
-  .card-image {
-    background-color: grey;
-
-    width: 148px;
-    margin-bottom: 5px;
-    background-size: cover;
-    border-radius: 15px 15px 0 0;
-  }
-
   hr {
     margin: 5px;
   }

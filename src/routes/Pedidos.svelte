@@ -8,16 +8,18 @@
   import {isUserLogin,user} from "../Components/stores"
 
   export const product = {}
-
+  let listaPedido=[]
   export const handleEmail = () => {
-    console.log($user.displayName)
-    console.log($user.email)
-    console.log($products)
-    itemInCard.set(false)
-    $products=[]
-
+    // console.log($user.displayName)
+    // console.log($user.email)
+    // console.log($products)
+    $itemInCard=false
+    //  listaPedido=[...$products, {nombre:$user.displayName} ,{ email:$user.email}]
+    listaPedido=[...$products]
+     console.log(listaPedido)
+     $products=[]
   }
-</script>
+</script> 
 
 <Card>
   <main slot="card" class="container-pedidos">
@@ -26,14 +28,52 @@
       {#if $itemInCard}
         <CompCart />
         <div class="botones-card">
-          <button on:click={handleEmail}>Enviar</button>
+          <button on:click={handleEmail}>Realizar Pedido</button>
         </div>
+      {:else}
+      
+      <div class="pedido">
+        <h4>Su pedido...</h4>
+        <p>{$user.displayName}, {$user.email}</p>
+
+        <hr>
+        {#each listaPedido as lista}
+         <div class="lista">
+          <p>Combo Nº: {lista.numerocombo}</p>
+          <p>Detalle: {lista.infocombo}</p>
+          <p>$ {lista.precio}</p>
+          <p>Cantidad: {lista.cantidad}</p>
+         </div>
+          <hr>
+        {/each}
+
+      </div>
       {/if}
     </div>
   </main>
 </Card>
 
 <style>
+  .lista{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+  }
+  p{
+    margin: 5px;
+    font-size:0.7rem;
+    padding: 0px;
+  }
+  .pedido{
+
+    background: rgb(241, 241, 241);
+    width: 400px;
+    height:auto;
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+  }
   .container-pedidos {
     display: flex;
   }

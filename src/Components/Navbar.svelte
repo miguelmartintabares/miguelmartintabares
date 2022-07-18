@@ -4,7 +4,7 @@
   import { goto } from "$app/navigation"
   import { isUserLogin, user } from "./stores.js"
   import { auth } from "../firebase"
-  import { GoogleAuthProvider, signInWithPopup} from "firebase/auth"
+  import { GoogleAuthProvider, signInWithPopup } from "firebase/auth"
 
   const login = async () => {
     try {
@@ -12,7 +12,7 @@
       const res = await signInWithPopup(auth, provider)
       $user = res.user
       $isUserLogin = true
-      goto("/Profile")
+      goto("/Pedidos")
     } catch (error) {
       console.log(error)
     }
@@ -21,7 +21,6 @@
   const logout = async () => {
     try {
       await signOut(auth)
-      $isUserLogin = false
       $user = {}
       $isUserLogin = false
     } catch (error) {
@@ -40,7 +39,7 @@
   aria-label="Fourth navbar example"
 >
   <div class="container-fluid">
-    <a href="/Historia" class="navbar-brand">Taborin Rugby </a>
+    <a href="/Product" class="navbar-brand">Taborin Rugby </a>
 
     <button
       class="navbar-toggler"
@@ -67,7 +66,7 @@
           <li class="nav-item">
             <a class="nav-link " href="/Home">Disabled</a>
           </li>
-         
+
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
@@ -83,22 +82,22 @@
             </ul>
           </li>
         </ul>
-        <Profile isUserLogin={$isUserLogin} user={$user}/>
-        {/if}
-        
+        <Profile isUserLogin={$isUserLogin} user={$user} />
+      {/if}
+
       <div class="col-md-3 ">
         <button on:click={login} type="button" class="btn btn-outline-light"
-          >Ingresar</button>
+          >Ingresar</button
+        >
 
         {#if $isUserLogin}
           <button on:click={logout} type="button" class="btn btn-light"
             >Salir</button
           >
         {/if}
-      </div  >
+      </div>
     </div>
   </div>
-
 </nav>
 
 <style>

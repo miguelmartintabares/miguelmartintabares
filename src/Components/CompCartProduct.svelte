@@ -1,5 +1,5 @@
 <script>
-  import { products } from "./stores.js"
+  import { itemInCard, products } from "./stores.js"
   
   export let product 
 
@@ -12,11 +12,15 @@
   }
   const removeProduct = () => {
     $products = $products.filter((e) => product.id != e.id) // dejo en product el ide(e.id) no clikeado
+    console.log($products,$itemInCard)
+    if($products.length===0)$itemInCard=false
   }
+
+
 </script>
 
 <div class="card-list">
-  <img src={product.img} alt={product.img} />
+  <img src={product.img} alt={product.numerocombo} />
   <p>Combo Nº {product.numerocombo}</p>
   <p>Cantidad {product.cantidad}</p>
   <p>Total ${product.precio * product.cantidad}</p>

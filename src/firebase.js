@@ -2,6 +2,8 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore"
 import { getAuth } from "firebase/auth"
+import { getStorage, ref, uploadBytes, getDownloadURL} from "firebase/storage";
+import { v4 } from "uuid"
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -17,7 +19,14 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app)
-export const auth=getAuth(app)
+export const auth = getAuth(app)
+export const storage = getStorage(app)
 
+export async function uploadFile(file, name){
+    const storageRef = ref(storage,name)
+    await uploadBytes(storageRef, file )
+    const url = await getDownloadURL(storageRef)
+    return url
+}

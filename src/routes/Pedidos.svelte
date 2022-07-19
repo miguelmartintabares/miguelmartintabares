@@ -10,14 +10,12 @@
   export const product = {}
   let listaPedido=[]
   let total=0
-  let monto=0
+  let parcial=0
 
   export const handleEmail = () => {
-    // console.log($user.displayName)
-    // console.log($user.email)
-    // console.log($products)
     $itemInCard=false
-    //  listaPedido=[...$products, {nombre:$user.displayName} ,{ email:$user.email}]
+    total=$products.map((item)=> item.precio * item.cantidad )
+    total=total.reduce((a,b)=> a+b)
     listaPedido=[...$products]
      console.log(listaPedido)
      $products=[]
@@ -49,14 +47,15 @@
         {#each listaPedido as lista}
          <div class="lista">
           <p>Combo Nº: {lista.numerocombo}</p>
-          <p>Cantidad: {lista.cantidad}</p>
+          <p>$ {lista.precio}</p>
+          <p>Cant.: {lista.cantidad}</p>
           <p>$ {lista.precio * lista.cantidad} </p>
           
          </div>
           <hr>
         {/each}
 
-         <p>Total: </p>
+         <p class="total">Total:${total} </p>
       </div>
       {/if}
     </div>
@@ -64,6 +63,9 @@
 </Card>
 
 <style>
+  .total{
+    align-self: flex-end;
+  }
   hr{
     margin: 0;
   }
@@ -76,6 +78,7 @@
     margin: 5px;
     font-size:0.7rem;
     padding: 0px;
+    
   }
   .pedido{
 

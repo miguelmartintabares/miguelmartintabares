@@ -122,9 +122,9 @@
 </script>
 
 <main>
-  <div class="container ">
-    <div class="row align-items-center">
-      <div class="col-3 ">
+  <div class="container-md ">
+    <div class="row ">
+      <div class="col-md-4 mt-0">
         <!-- combo Form -->
         <form
           on:submit|preventDefault={handleSubmit}
@@ -191,7 +191,7 @@
           </div>
         </form>
       </div>
-      <div class="col">
+      <div class="col-md-8">
          <div class="contenedor ">
         {#each combos as combo}
          <div class="edicion">
@@ -233,6 +233,15 @@
    .botones{
       margin: 12px;
    }
+   @media screen and (max-width: 480px) {
+      
+      .contenedor{
+      display: flex;
+      flex-direction: column;      
+   }
+}
+ 
+
 </style>
 
 <!-- {#each combos as combo}

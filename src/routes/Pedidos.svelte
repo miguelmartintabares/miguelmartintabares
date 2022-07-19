@@ -1,100 +1,122 @@
 <script>
+	import { datos, isUserLogin } from './../Components/stores.js';
+
   import CompProducts from "../Components/CompProducts.svelte"
   import CompCart from "../Components/CompCart.svelte"
   import Card from "./Card.svelte"
   import { itemInCard } from "../Components/stores.js"
   import { products } from "../Components/stores.js"
-  import { goto } from "$app/navigation"
-  import {isUserLogin,user} from "../Components/stores"
-
+  import { user } from "../Components/stores"
+  import Spinner from "../Components/Spinner.svelte"
+  import Toastify from "toastify-js"
+  
   export const product = {}
-  let listaPedido=[]
-  let total=0
-  let parcial=0
 
+  let listaPedido = []
+  let total = 0
+  export const toast=(texto)=>{
+    Toastify({ 
+      text: texto, 
+      duration:3000, 
+      gravity:"top", 
+      position: "right", 
+      offset: {
+        x: 0, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+        y:50 // vertical axis - can be a number or a string indicating unity. eg: '2em'
+    },}).showToast()
+  }
+  
+  export const cancelar=()=>{
+    toast("Cancelado")
+    $itemInCard = false
+    $products=[]
+    $datos=0
+  }
   export const handleEmail = () => {
-    $itemInCard=false
-    total=$products.map((item)=> item.precio * item.cantidad )
-    total=total.reduce((a,b)=> a+b)
-    listaPedido=[...$products]
-     console.log(listaPedido)
-     $products=[]
-  }
-  const calculaMontoTotal= (a,b)=>{
-    
-    console.log(a*b)
+    toast("Pedido Enviado...")
+    $itemInCard = false
+    total = $products
+      .map((item) => item.precio * item.cantidad)
+      .reduce((a, b) => a + b)
 
-
+    listaPedido = [...$products]
+    console.log(listaPedido)
+    $products = []
   }
-</script> 
+</script>
 
 <Card>
-  <main slot="card" class="container-pedidos">
-    <CompProducts />
+  <main slot="card" class="container">
+    <div class="spin">
+      <Spinner spinner={false} />
+    </div>
+      <CompProducts />
     <div class="compcard">
       {#if $itemInCard}
         <CompCart />
         <div class="botones-card">
-          <button on:click={handleEmail}>Realizar Pedido</button>
+          <button on:click={handleEmail}>Enviar </button>
+          <button on:click={cancelar}>Cancelar</button>
         </div>
-      {:else}
-      
-      <div class="pedido">
-        <h4>Su pedido...</h4>
-        <p>{$user.displayName}, {$user.email}</p>
-
-        <hr>
-        {#each listaPedido as lista}
-         <div class="lista">
-          <p>Combo Nº: {lista.numerocombo}</p>
-          <p>$ {lista.precio}</p>
-          <p>Cant.: {lista.cantidad}</p>
-          <p>$ {lista.precio * lista.cantidad} </p>
-          
-         </div>
+      <!-- {:else if listaPedido.length }
+        <div class="pedido">
+          <h4>Pedido Realizado con Exito...</h4>
+          <p>{$user.displayName}, {$user.email}</p>
+          <hr />
+          {#each listaPedido as lista}
+            <div class="lista">
+              <p>Combo Nº: {lista.numerocombo}</p>
+              <p>$ {lista.precio}</p>
+              <p>Cant.: {lista.cantidad}</p>
+              <p>$ {lista.precio * lista.cantidad}</p>
+            </div>
+            <hr />
+          {/each}
+          <p class="total">Total:${total}</p>
           <hr>
-        {/each}
-
-         <p class="total">Total:${total} </p>
-      </div>
+        </div>
+         <div class="botones-lista"> 
+        <button>Realizar otro Pedido</button>
+        <button >Cancelar Pedido</button>
+      </div> -->
       {/if}
+      
     </div>
+    
   </main>
 </Card>
 
 <style>
-  .total{
+  .total {
     align-self: flex-end;
   }
-  hr{
+  hr {
     margin: 0;
   }
-  .lista{
+  .lista {
     display: flex;
     flex-direction: row;
-    justify-content:space-between;
-  }
-  p{
-    margin: 5px;
-    font-size:0.7rem;
-    padding: 0px;
-    
-  }
-  .pedido{
+    text-align: center;
 
-    background: rgb(241, 241, 241);
+  }
+  p {
+    margin: 5px;
+    font-size: 0.7rem;
+    padding: 0px;
+  }
+  .pedido {
+    background: rgb(206, 255, 187);
     width: 300px;
-    height:auto;
-    border: 1px solid;
+    height: auto;
+   
     border-radius: 5px;
     padding: 10px;
     text-align: center;
   }
-  .container-pedidos {
+  .container {
     display: flex;
   }
   .compcard {
-    margin-top: 60px;
     margin-right: 20px;
     margin-left: 20px;
     width: auto;
@@ -102,11 +124,14 @@
   }
 
   button {
-    width: 100%;
+    margin-top: 5px;
+    width: 35%;
     border: 0;
     background-color: rgb(41, 103, 82);
     color: beige;
     border-radius: 5px;
+    font-size: 15px;
+    height: 30px;
   }
   button:hover {
     background-color: rgb(162, 0, 255);
@@ -119,7 +144,7 @@
   }
 
   @media screen and (max-width: 480px) {
-    .container-pedidos {
+    .container {
       display: flex;
       flex-direction: column-reverse;
     }
@@ -135,7 +160,6 @@
       align-content: space-between;
       height: auto;
       padding: 0px;
-      margin-top: 60px;
       margin-right: 10px;
       margin-left: 10px;
     }

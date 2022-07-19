@@ -1,15 +1,17 @@
 <script>
+  
   export let isUserLogin, user
+
+  import imgAvatar from "../img/no-picture-available-icon-1.jpg"
+
 </script>
 
 <div class="container">
- 
-    {#if isUserLogin}
-      <img src={user.photoURL} alt={user.displayName} class="avatar-perfil" />
-      <spam>{user.displayName}</spam>
-      <!-- <p>{$user.email}</p> -->
-    {/if}
- 
+  {#if isUserLogin}
+      <spam> <strong>Usuario </strong> </spam>
+      <img src={user.photoURL} alt="" class="avatar-perfil" />
+      <spam> {user.displayName}  </spam>
+  {/if}
 </div>
 
 <style>
@@ -17,12 +19,14 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 250px;
+    width: auto;
     margin: 0;
+
   }
   .avatar-perfil {
-    margin: 5px;
+    margin: 2px;
     width: 30px;
+    height: 30px;
     border-radius: 50%;
   }
   spam {
@@ -30,7 +34,6 @@
     color: rgb(212, 212, 212);
   }
 
-  @media screen and (max-width: 480px){
-
+  @media screen and (max-width: 480px) {
   }
 </style>

@@ -1,9 +1,9 @@
 <script>
 
 </script>
-
-<div>Para cargar combos ingresar a : Combos---Pedidos...</div>
-
+<footer>
+  Administrar
+</footer>
 <style>
-
+ 
 </style>

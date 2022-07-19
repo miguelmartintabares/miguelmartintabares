@@ -10,6 +10,7 @@
       $products = $products.filter((e) => product.id != e.id)
     }
   }
+  
   const removeProduct = () => {
     $products = $products.filter((e) => product.id != e.id) // dejo en product el ide(e.id) no clikeado
     console.log($products,$itemInCard)

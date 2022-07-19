@@ -1,12 +1,10 @@
 <script>
   import { baseProducts } from "./product.js"
   import CompProduct from "./CompProduct.svelte"
-  import CompNav from "./select.svelte"
 </script>
 
 <div class="main-combos">
   <h5>Combos</h5>
-  <!-- <CompNav />   selector zoom al pedo para probar -->
   <hr />
   <div class="container-product">
     {#each $baseProducts as dato}      <!--$baseProducts seria la base de dato sw combos--> 
@@ -23,7 +21,7 @@
   }
   .main-combos {
     width: 100%;
-    margin: 60px 0px 0px 10px;
+    margin: 0px 0px 0px 10px;
     padding: 0;
     height: 100%;
   }
@@ -49,7 +47,6 @@
     .main-combos {
       width: 100%;
       margin: 10px 0px 0px 10px;
-   
     }
 
     hr {

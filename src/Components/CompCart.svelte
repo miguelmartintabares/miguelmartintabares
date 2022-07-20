@@ -23,15 +23,7 @@
     flex-direction: row;
     align-items: center;
   }
-  .avatar-perfil {
-    margin: 2px;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-  }
-  p {
-    font-size: 13px;
-  }
+
   h5 {
     text-align: center;
     margin: 0;

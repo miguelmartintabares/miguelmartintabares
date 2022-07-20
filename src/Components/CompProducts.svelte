@@ -20,8 +20,8 @@
     padding: 0;
   }
   .main-combos {
-    width: 100%;
-    margin: 0px 0px 0px 10px;
+    width: 70%;
+    margin: 0px 0px 0px 0px;
     padding: 0;
     height: 100%;
   }
@@ -42,11 +42,11 @@
       display: flex;
       flex-direction: column;
       width: 80%;
-      gap: 1rem;
+      gap:1rem;
     }
     .main-combos {
       width: 100%;
-      margin: 10px 0px 0px 10px;
+      margin: 0px 0px 0px 0px;
     }
 
     hr {

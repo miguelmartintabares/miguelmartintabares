@@ -22,11 +22,11 @@
   const logout = async () => {
     try {
       await signOut(auth)
-       $isUserLogin = false
-       $itemInCard = false
-       $products=[]
-       $user=[]
-       $datos=0
+      $isUserLogin = false
+      $itemInCard = false
+      $products = []
+      $user = []
+      $datos = 0
       goto("/Home")
     } catch (error) {
       console.log(error)
@@ -38,8 +38,8 @@
     $isUserLogin = !!authUser
   })
 </script>
-<nav
 
+<nav
   class="navbar fixed-top navbar-expand-md navbar-dark bg-dark"
   aria-label="Fourth navbar example"
 >
@@ -89,21 +89,22 @@
         </ul>
         <Profile isUserLogin={$isUserLogin} user={$user} />
       {/if}
-      
-        {#if $isUserLogin}
-          <button on:click={logout} type="button" class="btn btn-outline-light"
-            >Salir</button
+
+      {#if $isUserLogin}
+        <button on:click={logout} type="button" class="btn btn-outline-light"
+          >Salir</button
+        >
+      {:else}
+        <div class="col-md-3 sm">
+          <button on:click={login} type="button" class="btn btn-outline-light"
+            >Ingresar</button
           >
-          {:else}
-          <div class="col-md-3 sm">
-            <button on:click={login} type="button" class="btn btn-outline-light"
-              >Ingresar</button
-            >
-          </div>
-        {/if}
+        </div>
+      {/if}
     </div>
   </div>
 </nav>
+
 <style>
   :global(*) {
     box-sizing: border-box;

@@ -18,6 +18,6 @@
 
 <style>
   div{
-    margin: 60px;
+    margin-top: 60px;
   }
 </style>

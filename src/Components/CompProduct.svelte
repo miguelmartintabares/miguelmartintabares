@@ -6,11 +6,11 @@
                            // al exportar se usa en componente padre para mandar datos
  let cantidadEnInput = ""
   
-  const enviar = (e) => {
+  const cargarInputCantidad = (e) => {
     cantidadEnInput = e.target.value
   }
 
-  const buyProductCant = (cant) => {
+  const agregarAlista = (cant) => {
     if(cantidadEnInput === 0)return
     itemInCard.set(true)
     for (let item of $products) {
@@ -38,18 +38,18 @@
     <div class="footer">
       <input
         class="input-product"
-        on:change={enviar}
-        on:keyup={enviar}
+        on:change={cargarInputCantidad}
+        on:keyup={cargarInputCantidad}
         value={cantidadEnInput}
         type="number"
-        placeholder="cantidad"
+        placeholder="Cantidad"
         min="1"
         max="20"
       />
 
       {#if cantidadEnInput}
         <button
-          on:click={() => buyProductCant(cantidadEnInput)}
+          on:click={() => agregarAlista(cantidadEnInput)}
           disabled={cantidadEnInput.length === 0}>Agregar</button
         >
       {/if}
@@ -80,6 +80,8 @@
     transform: scale(1.015);
     opacity: 1;
     z-index: 100;
+   
+    
   }
   hr {
     margin: 5px;
@@ -113,20 +115,19 @@
   button:hover {
     background-color: rgb(162, 0, 255);
     transition: 100ms;
-  }
-  input {
-    width: 70px;
-    border: 1px solid;
+
   }
   button:hover {
     background-color: rgb(162, 0, 255);
     transition: 100ms;
   }
   input {
-    width: 70px;
-    border: 1px solid;
-    border-radius: 0px 0px 0px 10px;
+    width: 50%;
+    border: 0.5px solid rgb(179, 179, 179);
+    border-radius: 2px 2px 2px 10px;
     padding: 5px;
+    font-weight: 500;
+    
   }
   .detalle {
     width: max-content;
@@ -168,7 +169,7 @@
       width: 160px;
       height: 40px;
       border: 1px solid;
-      border-radius: 0px 0px 0px 10px;
+      /* border-radius: 0px 0px 0px 10px; */
       padding: 5px;
     }
     .input-product {

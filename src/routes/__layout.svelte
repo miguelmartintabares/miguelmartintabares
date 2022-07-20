@@ -2,7 +2,7 @@
   import { isUserLogin } from "./../Components/stores.js"
   import Navbar from "../Components/Navbar.svelte"
   import { onMount } from "svelte"
-
+  import imagenFondo from "../img/o_1580076182.jpg"
   // let estado = false
   // const si = () => {estado=true}
 
@@ -12,12 +12,13 @@
 <Navbar />
 {#if $isUserLogin}
   <div>
-    <slot />
+   <slot />
   </div>
+  
 {/if}
 
 <style>
-  div{
-    margin-top: 60px;
+  div {
+    margin-top:70px;
   }
 </style>

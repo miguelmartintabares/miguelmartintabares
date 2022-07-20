@@ -1,32 +1,25 @@
 <script>
   import { products } from "./stores.js"
   import CompCartProduct from "./CompCartProduct.svelte"
-  import Profile from "../routes/Profile.svelte";
-  import {isUserLogin, user} from "./stores"
-
-
 </script>
 
-<h5>Lista de Pedidos</h5>
 <div>
-  <Profile isUserLogin={$isUserLogin} user={$user} />
+  {#each $products as dato}
+    <CompCartProduct product={dato} />
+    <!--product exportado de CompCardProduct se usa para enviar product desde acá -->
+  {/each}
 </div>
-<hr />
-{#each $products as dato}
-  <CompCartProduct product={dato} />
-  <!--product exportado de CompCardProduct se usa para enviar product desde acá -->
-{/each}
 
 <style>
   div {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
   }
 
   h5 {
-    text-align: center;
-    margin: 0;
+    color: aliceblue;
+    margin: 1px;
     padding: 0;
   }
   hr {

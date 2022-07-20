@@ -1,15 +1,20 @@
-<script></script>
+<script>
+  import imagenFondo from "../img/o_1580076182.jpg"
+</script>
 
 <main>
   <slot name="card">
-    <span class="missing">slot producto colocado</span>
+    
   </slot>
+
+  <slot name="fondo">
+     <span class="missing"></span>
+   </slot>
 </main>
 
 <div>
-  <slot name="jugador">
-   
-  </slot>
+ 
+
 </div>
 
 <!-- <div>
@@ -19,5 +24,6 @@
 </div> -->
 
 <style>
+
 
 </style>

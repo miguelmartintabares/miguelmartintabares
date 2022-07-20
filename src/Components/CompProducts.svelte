@@ -4,8 +4,6 @@
 </script>
 
 <div class="main-combos">
-  <h5>Combos</h5>
-  <hr />
   <div class="container-product">
     {#each $baseProducts as dato}      <!--$baseProducts seria la base de dato sw combos--> 
       <CompProduct product={dato} />   <!-- product es la variable para enviar dato a CompProduct-->
@@ -18,12 +16,14 @@
     font-size: 1.2rem;
     margin-left: 10px;
     padding: 0;
+    color: aliceblue;
   }
   .main-combos {
     width: 70%;
     margin: 0px 0px 0px 0px;
     padding: 0;
     height: 100%;
+    height: auto;
   }
   .container-product {
     margin: 0px;
@@ -32,6 +32,9 @@
     grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
     justify-items: center;
     gap: 0rem;
+    /* height: 280px; */
+    /* overflow:hidden;
+    overflow-y: scroll; */
   }
   hr {
     padding: 0;

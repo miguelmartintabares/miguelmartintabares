@@ -39,12 +39,13 @@
     margin-bottom: 10px;
     padding: 0;
     border-radius: 30px 0px 30px 10px;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-    height: 60px;
+    box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.5);
+    height: 50px;
     width: 300px;
+    background-attachment: fixed;
   }
   img {
-    height: 70px;
+    height: 50px;
     width: auto;
     border-radius: 30px 0px 30px 10px;
   }

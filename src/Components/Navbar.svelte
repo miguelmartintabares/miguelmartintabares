@@ -6,6 +6,8 @@
   import { auth } from "../firebase"
   import { GoogleAuthProvider, signInWithPopup } from "firebase/auth"
 
+  let current = "Home"
+
   const login = async () => {
     try {
       const provider = new GoogleAuthProvider()
@@ -40,7 +42,7 @@
 </script>
 
 <nav
-  class="navbar fixed-top navbar-expand-md navbar-dark bg-dark"
+  class="navbar fixed-top navbar-expand-md navbar-dark"
   aria-label="Fourth navbar example"
 >
   <div class="container-fluid">
@@ -62,10 +64,21 @@
       {#if $isUserLogin}
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a href="/Home" class="nav-link active" aria-current="page">Home</a>
+            <a
+              href="/Home"
+              class="nav-link "
+              class:active={current === "Home"}
+              on:click={() => (current = "Home")}
+              aria-current="page">Home</a
+            >
           </li>
           <li class="nav-item">
-            <a href="/Jugadores" class="nav-link">Jugadores</a>
+            <a
+              href="/Jugadores"
+              class="nav-link"
+              class:active={current === "Jugadores"}
+              on:click={() => (current = "Jugadores")}>Jugadores</a
+            >
           </li>
 
           <!-- <li class="nav-item">
@@ -75,6 +88,8 @@
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
+              class:active={current === "Combos"}
+              on:click={() => (current = "Combos")}
               href="/Home"
               id="dropdown04"
               data-bs-toggle="dropdown"
@@ -106,7 +121,21 @@
 </nav>
 
 <style>
-  :global(*) {
+  :global(body) {
     box-sizing: border-box;
+    background-image: url("../img/o_1580076182.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 20em;
+    opacity: 1;
+    width: auto;
+    height: 500px;
+    z-index: 0;
+  }
+  .active {
+  
+    color: rgb(255, 255, 255);
+  
   }
 </style>

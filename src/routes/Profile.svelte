@@ -1,16 +1,22 @@
 <script>
-  
   export let isUserLogin, user
 
   import imgAvatar from "../img/no-picture-available-icon-1.jpg"
 
+console.log(user.photoURL)
 </script>
 
 <div class="container">
   {#if isUserLogin}
+    {#if !user.photoURL}
+      <spam> <strong>Usuario </strong> </spam>
+      <img src={imgAvatar} alt="" class="avatar-perfil" />
+      <spam> {user.displayName} </spam>
+    {:else}
       <spam> <strong>Usuario </strong> </spam>
       <img src={user.photoURL} alt="" class="avatar-perfil" />
-      <spam> {user.displayName}  </spam>
+      <spam> {user.displayName} </spam>
+    {/if}
   {/if}
 </div>
 
@@ -21,7 +27,6 @@
     align-items: center;
     width: auto;
     margin: 0;
-
   }
   .avatar-perfil {
     margin: 2px;

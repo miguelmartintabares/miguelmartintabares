@@ -1,5 +1,6 @@
 <script>
-  import { itemInCard, products } from "./stores.js"
+  import { itemInCard, products} from "./stores.js"
+  
   
   export let product 
 

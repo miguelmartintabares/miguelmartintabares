@@ -1,8 +1,8 @@
 <script>
-  import { products } from "./stores.js"
+  import { combos,products} from "./stores.js"
   import { itemInCard } from "./stores.js"
 
-  export let product = {}  // por aca entra el dato del componente padre CompProducts 
+  export let product = {}  // por aca entra el dato del componente padre ComProductos 
                            // al exportar se usa en componente padre para mandar datos
  let cantidadEnInput = ""
   

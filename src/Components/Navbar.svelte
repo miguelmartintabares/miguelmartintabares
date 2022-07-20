@@ -1,4 +1,5 @@
 <script>
+
   import Profile from "./../routes/Profile.svelte"
   import { signOut, onAuthStateChanged } from "firebase/auth"
   import { goto } from "$app/navigation"
@@ -7,7 +8,7 @@
   import { GoogleAuthProvider, signInWithPopup } from "firebase/auth"
 
   let current = "Home"
-
+  
   const login = async () => {
     try {
       const provider = new GoogleAuthProvider()
@@ -64,7 +65,7 @@
       {#if $isUserLogin}
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a
+            <a 
               href="/Home"
               class="nav-link "
               class:active={current === "Home"}
@@ -74,7 +75,7 @@
           </li>
           <li class="nav-item">
             <a
-              href="/Jugadores"
+              href="/Jugadores" 
               class="nav-link"
               class:active={current === "Jugadores"}
               on:click={() => (current = "Jugadores")}>Jugadores</a

@@ -17,12 +17,4 @@
     align-items: center;
   }
 
-  h5 {
-    color: aliceblue;
-    margin: 1px;
-    padding: 0;
-  }
-  hr {
-    margin: 7px;
-  }
 </style>

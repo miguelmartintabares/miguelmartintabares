@@ -1,18 +1,11 @@
 <script>
   import { db } from "../firebase"
-  import {
-    onSnapshot,
-    collection,
-    addDoc,
-    deleteDoc,
-    doc,
-    updateDoc,
-  } from "firebase/firestore"
+  import {onSnapshot,collection,addDoc,deleteDoc,doc,updateDoc,} from "firebase/firestore"
   import Toastify from "toastify-js"
   import { onDestroy } from "svelte"
   import CompProduct from "../Components/CompProduct.svelte"
   import { uploadFile } from "../firebase"
-  import { datos } from "../Components/stores"
+  import { datos,combos } from "../Components/stores"
 
   let combo = {
     nombre: "",
@@ -22,7 +15,7 @@
     img: "",
   }
 
-  let combos = []
+  $combos = []
   let inputElement
   let spin = false
   let editStatus = false
@@ -31,7 +24,7 @@
   const unSub = onSnapshot(
     collection(db, "combos"),
     (querySnapshot) => {
-      combos = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+      $combos = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
     },
     (err) => {
       console.error(err)
@@ -77,7 +70,7 @@
     console.log(combo.img)
     if (!combo.nombre) return
     if (!combo.img) return
-    if(!combos)return
+    if(!$combos)return
     if (!editStatus) {
       addCombo()
     } else {
@@ -125,6 +118,7 @@
   }
 
   onDestroy(unSub)
+
 </script>
 
 <main>
@@ -209,7 +203,7 @@
       </div>
       <div class="col-md-8">
         <div class="contenedor ">
-          {#each combos as combo}
+          {#each $combos as combo}
             <div class="edicion">
               <CompProduct product={combo} />
               <div class="botones">

@@ -1,3 +1,4 @@
+
 <script>
   import { isUserLogin } from "./../Components/stores.js"
   import Navbar from "../Components/Navbar.svelte"
@@ -14,7 +15,6 @@
   <div>
    <slot />
   </div>
-  
 {/if}
 
 <style>

@@ -1,9 +1,6 @@
 <script>
   export let isUserLogin, user
-
   import imgAvatar from "../img/no-picture-available-icon-1.jpg"
-
-console.log(user.photoURL)
 </script>
 
 <div class="container">

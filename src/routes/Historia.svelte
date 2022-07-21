@@ -1,8 +1,10 @@
 <script>
-
+	import Slots from './Slots.svelte';
 </script>
 
-<div>Hisotria</div>
+<Slots>
+    <main slot="historia">Historia</main>
+</Slots>
 
 <style>
 

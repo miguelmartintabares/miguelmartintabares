@@ -2,13 +2,13 @@
   import CompCart from "./../Components/CompCart.svelte"
   import { datos, products } from "../Components/stores.js"
   import CompProducts from "../Components/CompProducts.svelte"
-  import Card from "./Card.svelte"
   import { itemInCard } from "../Components/stores.js"
   import Spinner from "../Components/Spinner.svelte"
   import Toastify from "toastify-js"
+  import Slots from "./Slots.svelte";
+
   export const product = {}
   let listaPedido = []
-  let total = 0
   
   export const toast = (texto) => {
     Toastify({
@@ -42,8 +42,8 @@
   }
 </script>
 
-<Card>
-  <main slot="card">
+<Slots>
+  <main slot="pedidos">
     <div class="container">
       <div class="spin">
         <Spinner spinner={false} />
@@ -62,7 +62,7 @@
       </div>
     </div>
   </main>
-</Card>
+</Slots>
 
 <style>
   .container {

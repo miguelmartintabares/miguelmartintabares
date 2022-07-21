@@ -1,11 +1,10 @@
 <script>
-  
+	import Slots from './Slots.svelte';
 </script>
 
-<div>
-  Administrar
-</div>
-
+<Slots>
+  <main slot="administrar">Administrar</main>
+</Slots>
 <style>
    
 </style>

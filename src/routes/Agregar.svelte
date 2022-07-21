@@ -1,11 +1,19 @@
 <script>
+  import Slots from "./Slots.svelte"
   import { db } from "../firebase"
-  import {onSnapshot,collection,addDoc,deleteDoc,doc,updateDoc,} from "firebase/firestore"
+  import {
+    onSnapshot,
+    collection,
+    addDoc,
+    deleteDoc,
+    doc,
+    updateDoc,
+  } from "firebase/firestore"
   import Toastify from "toastify-js"
   import { onDestroy } from "svelte"
   import CompProduct from "../Components/CompProduct.svelte"
   import { uploadFile } from "../firebase"
-  import { datos,combos } from "../Components/stores"
+  import { datos, combos } from "../Components/stores"
 
   let combo = {
     nombre: "",
@@ -70,7 +78,7 @@
     console.log(combo.img)
     if (!combo.nombre) return
     if (!combo.img) return
-    if(!$combos)return
+    if (!$combos) return
     if (!editStatus) {
       addCombo()
     } else {
@@ -118,114 +126,117 @@
   }
 
   onDestroy(unSub)
-
 </script>
 
-<main>
-  <div class="container-md ">
-    <div class="row">
-      <div class="col-md-4 mt-5">
-        <!-- combo Form -->
-        <form
-          on:submit|preventDefault={handleSubmit}
-          class="card card-body p-2"
-        >
-          <div class="mb-3">
-            <label for="nombre" class="fs-5 text-secondary"
-              >Ingresar datos del combo</label
-            >
-            <input
-              type="text"
-              bind:value={combo.nombre}
-              bind:this={inputElement}
-              placeholder="Nombre o Titulo"
-              class="form-control"
-            />
-          </div>
-
-          <div class="mb-1">
-            <input
-              type="number"
-              bind:value={combo.numerocombo}
-              rows="1"
-              placeholder="Numero de Combo"
-              class="form-control"
-            />
-            <textarea
-              bind:value={combo.infocombo}
-              rows="1"
-              placeholder="Info Combo"
-              class="form-control"
-            />
-            <input
-              type="number"
-              bind:value={combo.precio}
-              rows="3"
-              placeholder="$ Precio"
-              class="form-control"
-            />
-            <input
-              type="file"
-              rows="3"
-              class="form-control form-control-sm"
-              on:change={(e) => ($datos = e.target.files[0])}
-            />
-            <div>
-            <button
-              on:click={handleLoadImg}
-              class="btn btn-primary btn-sm "
-              disabled={!$datos}
-              >Subir
-              {#if spin}
-                <span
-                  class="spinner-border spinner-border-sm"
-                  role="status"
-                  aria-hidden="true"
-                />
-                Cargando Imagen...
-              {/if}
-            </button>
-        </div>
-          </div>
-
-          <div class="mt-2">
-            <button class="btn btn-primary btn-sm " disabled={!combo.nombre}>
-              <!-- <i class="material-icons">save</i> -->
-              <span class="ms-2"
-                >{#if !editStatus}Save{:else}Update{/if}</span
+<Slots>
+  <main slot="agregar">
+    <div class="container-md ">
+      <div class="row">
+        <div class="col-md-4 mt-5">
+          <!-- combo form inputs -->
+          <form
+            on:submit|preventDefault={handleSubmit}
+            class="card card-body p-2"
+          >
+            <div class="mb-3">
+              <label for="nombre" class="fs-5 text-secondary"
+                >Ingresar datos del combo</label
               >
-            </button>
-            <button on:click={onCancel} class="btn btn-info btn-sm"
-              >Cancel</button
-            >
-          </div>
-        </form>
-      </div>
-      <div class="col-md-8">
-        <div class="contenedor ">
-          {#each $combos as combo}
-            <div class="edicion">
-              <CompProduct product={combo} />
-              <div class="botones">
-                <button on:click={deleteCombo(combo.id)} class="btn btn-danger"
-                  >Borrar</button
-                >
+              <input
+                type="text"
+                bind:value={combo.nombre}
+                bind:this={inputElement}
+                placeholder="Nombre o Titulo"
+                class="form-control"
+              />
+            </div>
+
+            <div class="mb-1">
+              <input
+                type="number"
+                bind:value={combo.numerocombo}
+                rows="1"
+                placeholder="Numero de Combo"
+                class="form-control"
+              />
+              <textarea
+                bind:value={combo.infocombo}
+                rows="1"
+                placeholder="Info Combo"
+                class="form-control"
+              />
+              <input
+                type="number"
+                bind:value={combo.precio}
+                rows="3"
+                placeholder="$ Precio"
+                class="form-control"
+              />
+              <input
+                type="file"
+                rows="3"
+                class="form-control form-control-sm"
+                on:change={(e) => ($datos = e.target.files[0])}
+              />
+              <div>
                 <button
-                  class="btn btn-success"
-                  style="vertical-align:middle"
-                  on:click={editCombo(combo)}>Editar</button
-                >
+                  on:click={handleLoadImg}
+                  class="btn btn-primary btn-sm "
+                  disabled={!$datos}
+                  >Subir
+                  {#if spin}
+                    <span
+                      class="spinner-border spinner-border-sm"
+                      role="status"
+                      aria-hidden="true"
+                    />
+                    Cargando Imagen...
+                  {/if}
+                </button>
               </div>
             </div>
-          {/each}
+
+            <div class="mt-2">
+              <button class="btn btn-primary btn-sm " disabled={!combo.nombre}>
+                <!-- <i class="material-icons">save</i> -->
+                <span class="ms-2"
+                  >{#if !editStatus}Save{:else}Update{/if}</span
+                >
+              </button>
+              <button on:click={onCancel} class="btn btn-info btn-sm"
+                >Cancel</button
+              >
+            </div>
+          </form>
+        </div>
+        <!-- combo form inputs -->
+
+        <div class="col-md-8">
+          <div class="contenedor ">
+            {#each $combos as combo}
+              <div class="edicion">
+                <CompProduct product={combo} />
+                <div class="botones">
+                  <button
+                    on:click={deleteCombo(combo.id)}
+                    class="btn btn-danger">Borrar</button
+                  >
+                  <button
+                    class="btn btn-success"
+                    style="vertical-align:middle"
+                    on:click={editCombo(combo)}>Editar</button
+                  >
+                </div>
+              </div>
+            {/each}
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Render all combos -->
-</main>
-
+    <!-- Render all combos -->
+  </main>
+</Slots>
 
 <!-- {#each combos as combo}
   <div class="card card-body mt-2">

@@ -22,7 +22,8 @@
             height:{hg};
             border-radius:{br};
             text-align:{ta};
-            z-index: 1 ;"
+            z-index: 1 ;
+            letter-spacing:0.2em;"
     >
     {contenido}
   </h3>

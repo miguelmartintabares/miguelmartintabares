@@ -20,7 +20,7 @@
 
 
 </script>
-
+ 
 <div class="card-list">
   <img src={product.img} alt={product.numerocombo} />
   <p>Combo Nº {product.numerocombo}</p>

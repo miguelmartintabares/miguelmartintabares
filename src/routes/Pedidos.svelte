@@ -6,7 +6,7 @@
   import Spinner from "../Components/Spinner.svelte"
   import Toastify from "toastify-js"
   import Slots from "./Slots.svelte"
-  import TituloPagina from "../Components/TituloPagina.svelte";
+  import TituloPagina from "../Components/TituloPagina.svelte"
 
   export const product = {}
   let listaPedido = []
@@ -24,32 +24,34 @@
     }).showToast()
   }
 
-  export const cancelar = () => {
+   const cancelar = () => {
     toast("Cancelado")
     $itemInCard = false
     $products = []
-    $datos = 0
   }
-  export const handleEmail = () => {
+   const handleEmail = () => {
     toast("Pedido Enviado...")
     $itemInCard = false
-    total = $products
+     const total = $products
       .map((item) => item.precio * item.cantidad)
       .reduce((a, b) => a + b)
-
     listaPedido = [...$products]
-    console.log(listaPedido)
     $products = []
   }
 </script>
 
 <Slots>
   <main slot="pedidos">
-    <TituloPagina contenido="Pedidos" bg_c=" rgb(41, 103, 82)" ai="center" ct="white"  bg_wd="38%" />
+    <TituloPagina
+      contenido="Pedidos"
+      bg_c=" rgb(41, 103, 82)"
+      ai="center"
+      ct="white"
+      bg_wd="38%"
+    />
     <div class="container">
       <CompProducts />
       <div class="compcard">
-        <!-- <h2 class="fijo">Lista de Pedidos</h2> -->
         {#if $itemInCard}
           <CompCart />
           <div class="botones-card">
@@ -66,7 +68,6 @@
   .container {
     display: flex;
     height: 480px;
-
   }
   .compcard {
     width: 400;

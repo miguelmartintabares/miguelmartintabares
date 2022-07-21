@@ -3,7 +3,7 @@
   import CompCartProduct from "./CompCartProduct.svelte"
 </script>
 
-<main>
+<main> 
   {#each $products as dato}
     <CompCartProduct product={dato} />
     <!--product exportado de CompCardProduct se usa para enviar product desde acá -->

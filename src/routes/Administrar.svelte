@@ -5,7 +5,7 @@
 
 <Slots>
   <main slot="administrar">
-    <TituloPagina contenido="Adminitracion" bg_c=" rgb(41, 103, 82)" ai="center" ct="white" bg_wd="38%" />
+    <TituloPagina contenido="Administracion" bg_c=" rgb(41, 103, 82)" ai="center" ct="white" bg_wd="38%" />
   </main>
 </Slots>
 <style>

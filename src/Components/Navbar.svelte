@@ -94,11 +94,11 @@
               href="/Home"
               id="dropdown04"
               data-bs-toggle="dropdown"
-              aria-expanded="false">Combos</a
+              aria-expanded="false" sveltekit:prefetch>Combos</a
             >
             <ul class="dropdown-menu" aria-labelledby="dropdown04">
-              <a class="dropdown-item" href="/Agregar">Agregar</a>
-              <a class="dropdown-item" href="/Pedidos">Pedidos</a>
+              <a class="dropdown-item" href="/Agregar" sveltekit:prefetch>Agregar</a>
+              <a class="dropdown-item" href="/Pedidos" sveltekit:prefetch>Pedidos</a>
               <a class="dropdown-item" href="/Administrar">Administrar</a>
             </ul>
           </li>

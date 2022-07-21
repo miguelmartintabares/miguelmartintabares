@@ -44,29 +44,25 @@ import { combos } from './stores';
     grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
     justify-items: center;
     gap: 0rem;
-    /* height: 280px; */
-    /* overflow:hidden;
-    overflow-y: scroll; */
+    overflow:hidden;
+    overflow-y: scroll;
+    height: 480px;
   }
-  hr {
-    padding: 0;
-    margin: 0px;
-  }
+
   @media screen and (max-width: 480px) {
     .container-product {
       display: flex;
       flex-direction: column;
       width: 80%;
       gap:1rem;
+      overflow:hidden;
+       overflow-y: scroll;
+        height: 854px;
     }
     .main-combos {
       width: 100%;
       margin: 0px 0px 0px 0px;
     }
 
-    hr {
-      margin: 10px 0px 10px 0px;
-      width: 300px;
-    }
   }
 </style>

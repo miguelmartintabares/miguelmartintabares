@@ -5,11 +5,12 @@
   import { itemInCard } from "../Components/stores.js"
   import Spinner from "../Components/Spinner.svelte"
   import Toastify from "toastify-js"
-  import Slots from "./Slots.svelte";
+  import Slots from "./Slots.svelte"
+  import TituloPagina from "../Components/TituloPagina.svelte";
 
   export const product = {}
   let listaPedido = []
-  
+
   export const toast = (texto) => {
     Toastify({
       text: texto,
@@ -44,11 +45,8 @@
 
 <Slots>
   <main slot="pedidos">
+    <TituloPagina contenido="Pedidos" bg_c=" rgb(41, 103, 82)" ai="center" ct="white"  bg_wd="38%" />
     <div class="container">
-      <div class="spin">
-        <Spinner spinner={false} />
-      </div>
-      <!-- <h2 class="fijo">products</h2> -->
       <CompProducts />
       <div class="compcard">
         <!-- <h2 class="fijo">Lista de Pedidos</h2> -->
@@ -67,10 +65,8 @@
 <style>
   .container {
     display: flex;
-    height: 500px;
-    width: auto;
-    overflow: hidden;
-    overflow-y: scroll;
+    height: 480px;
+
   }
   .compcard {
     width: 400;
@@ -99,7 +95,7 @@
     .container {
       display: flex;
       flex-direction: column-reverse;
-     height: auto;
+      height: auto;
     }
     button {
       margin-top: 0px;

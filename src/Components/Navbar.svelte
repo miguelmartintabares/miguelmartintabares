@@ -43,7 +43,7 @@
 </script>
 
 <nav
-  class="navbar fixed-top navbar-expand-md navbar-dark"
+  class="navbar fixed-top navbar-expand-md navbar-dark" style="background-color:black; opacity:0.7"
   aria-label="Fourth navbar example"
 >
   <div class="container-fluid">

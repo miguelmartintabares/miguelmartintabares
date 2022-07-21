@@ -3,18 +3,29 @@
   import CompCartProduct from "./CompCartProduct.svelte"
 </script>
 
-<div>
+<main>
   {#each $products as dato}
     <CompCartProduct product={dato} />
     <!--product exportado de CompCardProduct se usa para enviar product desde acá -->
   {/each}
-</div>
+</main>
 
 <style>
-  div {
+  main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: auto;
+    height: 480px;
+    overflow: hidden;
+    overflow-y: scroll;
   }
+  @media screen and (max-width: 480px) {
 
+    main {
+    height: auto;
+    overflow: unset;
+    overflow-y: unset;
+    }
+  } 
 </style>

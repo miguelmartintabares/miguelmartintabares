@@ -142,7 +142,7 @@
       margin:0px;
       width: 300px;
       height: auto;
-      opacity: 0.8;
+      opacity:0.9;
     }
     .eslot:hover {
       transform: scale(1);

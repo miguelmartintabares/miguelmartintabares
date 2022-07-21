@@ -1,4 +1,5 @@
 <script>
+	import TituloPagina from './../Components/TituloPagina.svelte';
   import Slots from "./Slots.svelte"
   import { db } from "../firebase"
   import {
@@ -128,13 +129,14 @@
   onDestroy(unSub)
 </script>
 
-<Slots>
+<Slots> 
   <main slot="agregar">
-    <div class="container-md ">
+    <TituloPagina contenido="Agregar" bg_c=" rgb(41, 103, 82)" ai="center" ct="white" bg_wd="38%" />
+    <div class="container">
       <div class="row">
-        <div class="col-md-4 mt-5">
+        <div class="col-md-4 mt-0">
           <!-- combo form inputs -->
-          <form
+          <form                          
             on:submit|preventDefault={handleSubmit}
             class="card card-body p-2"
           >
@@ -238,40 +240,17 @@
   </main>
 </Slots>
 
-<!-- {#each combos as combo}
-  <div class="card card-body mt-2">
-    <div class="d-flex justify-content-between">
-      <h5>{combo.nombre}</h5>
-      <button class="material-icons" style="vertical-align:middle" on:click={editCombo(combo)}>Edit</button>
-    </div>
-    <p>Combo N: {combo.numerocombo}</p>
-    <p>Detalle: {combo.infocombo}</p>
-    <p>${combo.precio}</p>
-    <img src={combo.img} alt={combo.nombre}/>
-    <div>
-      <button on:click={deleteCombo(combo.id)} class="btn btn-danger">
-        <button class="material-icons" style="vertical-align:middle">Delete</button>
-        <span style="vertical-align:middle">Delete</span>
-      </button>
-    </div>
-  </div>
-  {/each} -->
-
-<!-- TEMPLATE -->
 <style>
-  main {
-    margin-top: 60px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-  .contenedor {
+  .contenedor {       /* tarjetas de edicion  */
     margin: 0px;
     display: grid;
     grid-auto-flow: dense;
     grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
-    justify-items: center;
     gap: 1rem;
+    width: auto;
+    height: 480px;
+    overflow: hidden;
+    overflow-y: scroll;
   }
   .edicion {
     text-align: center;
